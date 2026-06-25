@@ -5,57 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urutan Kabel UTP - Kryzna</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 2rem; max-width: 800px; margin: 0 auto; background: #f4f7f6; color: #333; }
+        /* Gaya Dasar & Reset - Disamakan dengan halaman utama Kryzna */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
+
+        /* Navigasi Atas - Menggunakan tanda ../ agar aman melompat keluar folder */
+        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.5rem; }
+        nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+        nav a:hover { color: #38bdf8; }
+
+        /* Wadah Konten Materi */
+        .content-container { max-width: 800px; margin: 2rem auto; padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .back-link { display: inline-block; margin-bottom: 1.5rem; color: #0ea5e9; text-decoration: none; font-weight: bold; }
-        h1 { color: #1e3a8a; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
-        h3 { color: #0ea5e9; margin-top: 1.5rem; }
-        ul, ol { margin-left: 1.5rem; }
+        .back-link:hover { color: #0284c7; }
+        
+        /* Tipografi Teks */
+        h1 { color: #1e3a8a; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        h3 { color: #0ea5e9; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
         li { margin-bottom: 0.5rem; }
         .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
     </style>
 </head>
 <body>
-    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
-    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
-    
-    <h1>3. Urutan Kabel UTP & Teknik Crimping</h1>
-    <p>Kabel UTP (Unshielded Twisted Pair) kategori Cat5e atau Cat6 adalah media transmisi fisik kabel yang paling umum digunakan untuk menghubungkan antarperangkat keras dalam membangun sebuah jaringan lokal (LAN).</p>
 
-    <h3>Alat-alat yang Dibutuhkan:</h3>
-    <ul>
-        <li>Kabel UTP (Cat5e / Cat6)</li>
-        <li>Konektor RJ45</li>
-        <li>Tang Crimping</li>
-        <li>LAN Tester</li>
-    </ul>
+    <!-- Navigasi Atas yang Senada dengan Halaman Utama -->
+    <header>
+        <h1>Kryzna</h1>
+        <nav>
+            <a href="../index.html#tutorial">Tutorial</a>
+            <a href="../index.html#tentang">Tentang</a>
+        </nav>
+    </header>
 
-    <h3>Urutan T568B (Straight-Through):</h3>
-    <p>Posisikan pengunci klip konektor RJ45 menghadap ke bawah, lalu susun urutan kabel dari kiri ke kanan:</p>
-    <ol>
-        <li>Putih - Oranye</li>
-        <li>Oranye</li>
-        <li>Putih - Hijau</li>
-        <li>Biru</li>
-        <li>Putih - Biru</li>
-        <li>Hijau</li>
-        <li>Putih - Cokelat</li>
-        <li>Cokelat</li>
-    </ol>
+    <!-- Tempat Isi Konten Edukasi -->
+    <main class="content-container">
+        <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+        <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+        
+        <h1>3. Urutan Kabel UTP & Teknik Crimping</h1>
+        <p>Kabel UTP (Unshielded Twisted Pair) kategori Cat5e atau Cat6 is media transmisi fisik kabel yang paling umum digunakan untuk menghubungkan antarperangkat keras dalam membangun sebuah jaringan lokal (LAN).</p>
 
-    <h3>Perbedaan Tipe Pemasangan Kabel:</h3>
-    <ul>
-        <li><strong>Kabel Straight-Through:</strong> Ujung A dan Ujung B menggunakan susunan warna standar T568B yang sama. Berfungsi menghubungkan dua perangkat yang <em>berbeda jenis</em> (contoh: Komputer ke Switch, Komputer ke Router, atau Switch ke Router).</li>
-        <li><strong>Kabel Cross-Over:</strong> Ujung A menggunakan standar T568A, sedangkan Ujung B menggunakan T568B. Berfungsi menghubungkan dua perangkat yang <em>sama jenis</em> secara langsung (contoh: Komputer langsung ke Komputer, atau Switch ke Switch).</li>
-    </ul>
+        <h3>Alat-alat yang Dibutuhkan:</h3>
+        <ul>
+            <li>Kabel UTP (Cat5e / Cat6)</li>
+            <li>Konektor RJ45</li>
+            <li>Tang Crimping</li>
+            <li>LAN Tester</li>
+        </ul>
 
-    <h3>Langkah-Langkah Pembuatan:</h3>
-    <ol>
-        <li>Kupas kulit pelindung luar kabel UTP sekitar 2 cm menggunakan pisau pemotong pada tang crimping.</li>
-        <li>Urai lilitan pasangannya, lalu luruskan dan urutkan kedelapan warna kabel sesuai standar <span class="highlight">T568B</span> di atas.</li>
-        <li>Rapatkan susunan kabel tersebut, lalu potong ujungnya secara rata menggunakan tang crimping agar tingginya seimbang.</li>
-        <li>Masukkan kabel dengan hati-hati ke dalam konektor RJ45 hingga setiap ujung tembaga menyentuh bagian paling depan pin konektor.</li>
-        <li>Masukkan konektor RJ45 ke dalam lubang cetakan tang crimping, lalu jepit dengan kuat hingga pin tembaga menancap pada kabel.</li>
-        <li>Masukkan kedua ujung kabel yang telah terpasang konektor ke alat LAN Tester, lalu nyalakan. Jika lampu indikator nomor 1 sampai 8 menyala berurutan secara bersamaan, pemasangan kabel berhasil!</li>
-    </ol>
+        <h3>Urutan T568B (Straight-Through):</h3>
+        <p>Posisikan pengunci klip konektor RJ45 menghadap ke bawah, lalu susun urutan kabel dari kiri ke kanan:</p>
+        <ol>
+            <li>Putih - Oranye</li>
+            <li>Oranye</li>
+            <li>Putih - Hijau</li>
+            <li>Biru</li>
+            <li>Putih - Biru</li>
+            <li>Hijau</li>
+            <li>Putih - Cokelat</li>
+            <li>Cokelat</li>
+        </ol>
+
+        <h3>Perbedaan Tipe Pemasangan Kabel:</h3>
+        <ul>
+            <li><strong>Kabel Straight-Through:</strong> Ujung A dan Ujung B menggunakan susunan warna standar T568B yang sama. Berfungsi menghubungkan dua perangkat yang <em>berbeda jenis</em> (contoh: Komputer ke Switch, Komputer ke Router, atau Switch ke Router).</li>
+            <li><strong>Kabel Cross-Over:</strong> Ujung A menggunakan standar T568A, sedangkan Ujung B menggunakan T568B. Berfungsi menghubungkan dua perangkat yang <em>sama jenis</em> secara langsung (contoh: Komputer langsung ke Komputer, atau Switch ke Switch).</li>
+        </ul>
+
+        <h3>Langkah-Langkah Pembuatan:</h3>
+        <ol>
+            <li>Kupas kulit pelindung luar kabel UTP sekitar 2 cm menggunakan pisau pemotong pada tang crimping.</li>
+            <li>Urai lilitan pasangannya, lalu luruskan dan urutkan kedelapan warna kabel sesuai standar <span class="highlight">T568B</span> di atas.</li>
+            <li>Rapatkan susunan kabel tersebut, lalu potong ujungnya secara rata menggunakan tang crimping agar tingginya seimbang.</li>
+            <li>Masukkan kabel dengan hati-hati ke dalam konektor RJ45 hingga setiap ujung tembaga menyentuh bagian paling depan pin konektor.</li>
+            <li>Masukkan konektor RJ45 ke dalam lubang cetakan tang crimping, lalu jepit dengan kuat hingga pin tembaga menancap pada kabel.</li>
+            <li>Masukkan kedua ujung kabel yang telah terpasang konektor ke alat LAN Tester, lalu nyalakan. Jika lampu indikator nomor 1 sampai 8 menyala berurutan secara bersamaan, pemasangan kabel berhasil!</li>
+        </ol>
+    </main>
+
 </body>
 </html>
