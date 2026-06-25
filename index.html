@@ -1,28 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kryzna - Edukasi Jaringan & Komputer</title>
+    <style>
+        /* Gaya Dasar & Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
+
+        /* Navigasi */
+        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.5rem; }
+        nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+        nav a:hover { color: #38bdf8; }
+
+        /* Banner Utama */
+        .hero { background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: white; text-align: center; padding: 4rem 1rem; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+
+        /* Konten Utama */
+        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .section-title { text-align: center; margin-bottom: 2rem; color: #1e3a8a; }
+
+        /* Grid Kartu Tutorial */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #0ea5e9; display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { margin-bottom: 0.5rem; color: #1e3a8a; }
+        .card p { margin-bottom: 1.5rem; color: #555; }
+        
+        /* Tombol Link */
+        .btn-read { display: block; background-color: #0ea5e9; color: white; text-decoration: none; padding: 0.6rem 1rem; border-radius: 5px; cursor: pointer; font-weight: 600; text-align: center; transition: background 0.2s; }
+        .btn-read:hover { background-color: #0284c7; }
+
+        footer { background-color: #1e293b; color: white; text-align: center; padding: 1.5rem 1rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kryzna</h1>
+        <nav>
+            <a href="#tutorial">Tutorial</a>
+            <a href="#tentang">Tentang</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Belajar Jaringan Komputer Jadi Mudah</h2>
+        <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer.</p>
+    </section>
+
+    <!-- Kontainer Kartu Menu Utama -->
+    <main class="container" id="tutorial">
+        <h2 class="section-title">Daftar Tutorial Dasar</h2>
+        <div class="grid" id="tutorial-grid">
+            <!-- Kartu menu otomatis dibuat oleh skrip JS di bawah -->
+        </div>
+    </main>
+
+    <section class="container" id="tentang" style="text-align: center; max-width: 700px;">
+        <h2 class="section-title">Tentang Website Ini</h2>
+        <p>Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kryzna. Dibuat dengan GitHub Pages.</p>
+    </footer>
+
     <script>
-        // Mengambil data daftar menu dari file materi.json
+        // Membaca file pangkalan data materi JSON secara asinkronus
         fetch('materi.json')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Gagal mengambil file materi.json');
+                    throw new Error('Respons jaringan bermasalah saat membaca file materi.json');
                 }
                 return response.json();
             })
             .then(data => {
                 const grid = document.getElementById('tutorial-grid');
+                if (!data || data.length === 0) {
+                    grid.innerHTML = '<p style="text-align:center; width:100%;">Belum ada materi tutorial saat ini.</p>';
+                    return;
+                }
+                
+                // Memetakan data dari file JSON ke format kartu HTML
                 grid.innerHTML = data.map(item => `
                     <div class="card">
                         <div>
-                            <h3>${item.judul}</h3>
-                            <!-- Menggunakan deskripsiSingkat tanpa spasi -->
+                            <h3>${item.judul || 'Judul Belum Diisi'}</h3>
                             <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
                         </div>
-                        <!-- Link langsung diarahkan ke halaman file HTML materi masing-masing -->
-                        <a href="${item.linkHalaman}" class="btn-read">Buka Tutorial</a>
+                        <a href="${item.linkHalaman || '#'}" class="btn-read">Buka Tutorial</a>
                     </div>
                 `).join('');
             })
             .catch(error => {
-                console.error('Gagal memuat daftar menu:', error);
-                document.getElementById('tutorial-grid').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat data tutorial. Pastikan file materi.json sudah benar.</p>';
+                console.error('Terjadi kendala pemuatan skrip:', error);
+                const grid = document.getElementById('tutorial-grid');
+                if (grid) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 2rem; background: #fee2e2; border-radius: 8px; border: 1px solid #fca5a5; color: #991b1b;">
+                            <h3>Terjadi Kesalahan Struktur Data</h3>
+                            <p>Mohon periksa kembali penulisan tanda baca koma atau kurung di dalam file <strong>materi.json</strong> Anda.</p>
+                        </div>
+                    `;
+                }
             });
     </script>
+</body>
+</html>
