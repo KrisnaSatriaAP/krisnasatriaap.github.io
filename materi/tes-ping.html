@@ -9,14 +9,30 @@
         .back-link { display: inline-block; margin-bottom: 1.5rem; color: #0ea5e9; text-decoration: none; font-weight: bold; }
         h1 { color: #1e3a8a; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
         h3 { color: #0ea5e9; margin-top: 1.5rem; }
+        ul, ol { margin-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Kembali ke Menu Utama</a>
+    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+    
     <h1>2. Panduan Lengkap Tes Koneksi (Ping)</h1>
-    <p><strong>PING (Packet Internet Groper)</strong> adalah perintah utilitas yang digunakan untuk mengecek integritas atau kualitas koneksi antara perangkat Anda dengan server target di internet menggunakan protokol ICMP.</p>
+    <p><strong>PING (Packet Internet Groper)</strong> adalah perintah utilitas yang digunakan untuk mengecek integritas atau kualitas koneksi antara perangkat Anda dengan server target di internet menggunakan protokol ICMP (Internet Control Message Protocol).</p>
 
     <h3>Cara Melakukan Ping:</h3>
-    <p>Buka Command Prompt (Windows), lalu ketik: <code>ping google.com</code> dan tekan Enter.</p>
+    <ol>
+        <li>Buka aplikasi Command Prompt (Windows) atau Terminal (Mac/Linux) di komputer Anda.</li>
+        <li>Ketik perintah berikut: <span class="highlight">ping google.com</span> atau <span class="highlight">ping 8.8.8.8</span> lalu tekan Enter.</li>
+        <li>Sistem secara default akan mengirimkan 4 paket data uji coba dan menunggu balasan dari server tujuan.</li>
+    </ol>
+
+    <h3>Cara Membaca Hasil Respon Ping:</h3>
+    <ul>
+        <li><strong>Reply from ... bytes=32 time=15ms TTL=56 :</strong> Koneksi jaringan berjalan normal dan sukses. Nilai angka pada <strong>time</strong> menunjukkan delay/latensi pengiriman data dalam satuan milidetik (ms). Semakin kecil nilainya, semakin cepat koneksi Anda.</li>
+        <li><strong>Request Timed Out (RTO) :</strong> Paket data uji coba hilang di tengah jalan atau tidak mendapatkan balasan. Hal ini menandakan adanya gangguan kabel fisik, sinyal buruk, atau server target yang dituju sedang sibuk/memblokir sistem keamanan ping.</li>
+        <li><strong>Destination Host Unreachable :</strong> Komputer lokal Anda sama sekali tidak dapat menemukan jalur rute menuju alamat IP target. Biasanya terjadi akibat kesalahan konfigurasi kabel LAN lokal, masalah pada router, atau Wi-Fi laptop yang terputus.</li>
+    </ul>
 </body>
 </html>
