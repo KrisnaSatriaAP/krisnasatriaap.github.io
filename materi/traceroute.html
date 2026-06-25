@@ -9,17 +9,34 @@
         .back-link { display: inline-block; margin-bottom: 1.5rem; color: #0ea5e9; text-decoration: none; font-weight: bold; }
         h1 { color: #1e3a8a; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
         h3 { color: #0ea5e9; margin-top: 1.5rem; }
+        ul, ol { margin-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Kembali ke Menu Utama</a>
+    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+    
     <h1>6. Melacak Rute Perjalanan Paket Data (Traceroute)</h1>
-    <p>Pernahkah Anda penasaran bagaimana data internet dari laptop Anda bisa sampai ke server besar seperti Google atau Facebook? Kita bisa melacak jalurnya menggunakan utilitas bernama Traceroute.</p>
+    <p>Pernahkah Anda penasaran bagaimana data internet dari laptop Anda bisa sampai ke server besar seperti Google atau Facebook? Kita bisa melacak jalurnya menggunakan utilitas diagnosis jaringan bernama Traceroute.</p>
     
     <h3>Fungsi Utama Traceroute:</h3>
-    <p>Traceroute memetakan satu per satu lompatan router (*hops*) yang dilewati oleh paket data Anda dari rumah hingga sampai ke server tujuan. Alat ini sangat berguna untuk mengetahui di server atau titik router mana koneksi internet Anda mulai mengalami kelambatan atau putus.</p>
+    <p>Traceroute memetakan satu per satu lompatan router (<em>hops</em>) yang dilewati oleh paket data Anda dari komputer rumah, melewati server penyedia internet (ISP), hingga sampai ke server tujuan akhir. Alat ini sangat berguna untuk melakukan <em>troubleshooting</em> guna mengetahui di titik server atau router mana koneksi internet Anda mulai mengalami kelambatan (latensi tinggi) atau putus total.</p>
 
     <h3>Cara Menjalankannya:</h3>
-    <p>Buka Command Prompt di Windows, lalu ketik perintah <code>tracert google.com</code> dan tekan Enter. Layar akan menampilkan daftar nomor IP router perantara beserta waktu responsnya dalam satuan milidetik (ms).</p>
+    <ol>
+        <li>Buka aplikasi Command Prompt (Windows) atau Terminal (Mac/Linux).</li>
+        <li>Jika Anda menggunakan Windows, ketik perintah berikut: <span class="highlight">tracert google.com</span> lalu tekan Enter.</li>
+        <li>Jika Anda menggunakan Mac atau Linux, ketik perintah: <span class="highlight">traceroute google.com</span> lalu tekan Enter.</li>
+    </ol>
+
+    <h3>Cara Membaca Hasil Cetak (*Output*) Traceroute:</h3>
+    <ul>
+        <li><strong>Nomor Lompatan (Hop Index):</strong> Kolom angka berurutan di sebelah kiri (1, 2, 3, dst.) menunjukkan urutan jumlah router perantara yang dilalui paket data.</li>
+        <li><strong>Waktu Respons (RTT):</strong> Tiga kolom waktu dalam satuan milidetik (ms) menunjukkan kecepatan respon bolak-balik dari router tersebut. Semakin kecil angkanya, jaringan semakin bagus.</li>
+        <li><strong>Domain/IP Address:</strong> Kolom paling kanan menunjukkan nama host nama domain atau alamat IP dari server/router perantara yang sedang dilewati pada lompatan tersebut.</li>
+        <li><strong>Tanda Bintang (*):</strong> Jika muncul tanda bintang dengan pesan <em>"Request timed out"</em> pada lompatan tertentu, berarti router perantara tersebut sedang sibuk, mengalami gangguan, atau sengaja memblokir protokol pelacakan demi keamanan.</li>
+    </ul>
 </body>
 </html>
