@@ -9,17 +9,36 @@
         .back-link { display: inline-block; margin-bottom: 1.5rem; color: #0ea5e9; text-decoration: none; font-weight: bold; }
         h1 { color: #1e3a8a; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
         h3 { color: #0ea5e9; margin-top: 1.5rem; }
+        ul, ol { margin-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Kembali ke Menu Utama</a>
+    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+    
     <h1>5. Mengenal MAC Address (Alamat Fisik Perangkat)</h1>
-    <p><strong>Media Access Control Address (MAC Address)</strong> adalah identitas fisik unik sepanjang 48-bit yang ditanamkan secara permanen pada kartu jaringan (NIC/Wi-Fi adapter) perangkat Anda oleh pabrik pembuatnya.</p>
+    <p><strong>Media Access Control Address (MAC Address)</strong> adalah identitas fisik unik sepanjang 48-bit yang ditanamkan secara permanen pada kartu jaringan atau <em>Network Interface Card</em> (NIC/Wi-Fi adapter) perangkat Anda oleh pabrik pembuatnya. MAC Address berfungsi sebagai tanda pengenal perangkat keras agar bisa berkomunikasi di dalam lapisan data-link (Layer 2) pada model OSI.</p>
     
     <h3>Apa Bedanya dengan IP Address?</h3>
-    <p>IP Address bersifat dinamis (bisa berubah-ubah tergantung jaringan internet tempat Anda terhubung), sedangkan MAC Address bersifat statis/permanen dan tidak akan pernah berubah ke mana pun perangkat Anda dibawa.</p>
+    <ul>
+        <li><strong>IP Address (Alamat Logis):</strong> Bersifat dinamis atau bisa berubah-ubah tergantung lokasi jaringan internet tempat perangkat Anda terhubung saat itu.</li>
+        <li><strong>MAC Address (Alamat Fisik):</strong> Bersifat statis atau permanen. Alamat ini unik di seluruh dunia dan tidak akan pernah berubah ke mana pun perangkat Anda dibawa.</li>
+    </ul>
+
+    <h3>Struktur Penulisan MAC Address:</h3>
+    <p>MAC Address ditulis dalam bentuk 12 digit bilangan heksadesimal yang dikelompokkan menjadi 6 bagian yang dipisahkan oleh tanda hubung (-) atau titik dua (:). Contoh formatnya: <span class="highlight">00-1A-2B-3C-4D-5E</span>.</p>
+    <ul>
+        <li><strong>3 Blok Pertama (OUI):</strong> Menunjukkan kode identitas pabrik pembuat perangkat hardware (misal: Cisco, Intel, Asus).</li>
+        <li><strong>3 Blok Terakhir:</strong> Menunjukkan nomor urut unik komponen fisik adapter jaringan tersebut.</li>
+    </ul>
 
     <h3>Cara Cek MAC Address di Windows:</h3>
-    <p>Buka Command Prompt (CMD), ketik perintah <code>getmac</code> atau <code>ipconfig /all</code>, lalu cari baris tulisan <strong>Physical Address</strong>. Formatnya biasanya berupa kombinasi huruf dan angka seperti: <code>00-1A-2B-3C-4D-5E</code>.</p>
+    <ol>
+        <li>Buka aplikasi Command Prompt (CMD) di komputer Anda.</li>
+        <li>Ketik perintah <span class="highlight">getmac</span> lalu tekan Enter untuk melihat daftar alamat fisik cepat.</li>
+        <li>Atau, ketik perintah <span class="highlight">ipconfig /all</span> dan tekan Enter untuk melihat detail lengkap jaringan. Cari baris tulisan <strong>Physical Address</strong> pada adapter jaringan yang sedang Anda gunakan aktif.</li>
+    </ol>
 </body>
 </html>
