@@ -13,5 +13,20 @@
     "judul": "3. Urutan Kabel UTP (Crimping)",
     "deskripsiSingkat": "Panduan teknis langkah demi langkah menyusun warna kabel standar Straight dan Cross menggunakan tang crimping.",
     "linkHalaman": "kabel-utp.html"
+  },
+  {
+    "judul": "4. Perbedaan Router dan Switch",
+    "deskripsiSingkat": "Pahami perbedaan fungsi kedua alat jaringan ini dalam membagikan internet dan menghubungkan komputer lokal.",
+    "linkHalaman": "router-switch.html"
+  },
+  {
+    "judul": "5. Mengenal MAC Address",
+    "deskripsiSingkat": "Materi tentang alamat fisik permanen pada perangkat keras jaringan yang membedakannya dengan IP Address.",
+    "linkHalaman": "mac-address.html"
+  },
+  {
+    "judul": "6. Melacak Rute Data (Traceroute)",
+    "deskripsiSingkat": "Tutorial menggunakan perintah tracert untuk melacak jalur perjalanan paket data internet Anda ke server tujuan.",
+    "linkHalaman": "traceroute.html"
   }
 ]
