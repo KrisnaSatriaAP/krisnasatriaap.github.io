@@ -11,17 +11,33 @@
         h3 { color: #0ea5e9; margin-top: 1.5rem; }
         ul, ol { margin-left: 1.5rem; }
         li { margin-bottom: 0.5rem; }
+        .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Kembali ke Menu Utama</a>
+    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+    
     <h1>1. Mengenal IP Address secara Mendalam</h1>
-    <p><strong>Internet Protocol Address (IP Address)</strong> adalah identitas angka unik yang dimiliki oleh setiap perangkat (komputer, HP, router) agar bisa saling berkomunikasi di dalam jaringan lokal maupun internet.</p>
+    <p><strong>Internet Protocol Address (IP Address)</strong> adalah identitas angka unik yang dimiliki oleh setiap perangkat (komputer, HP, router) agar bisa saling berkomunikasi di dalam jaringan lokal maupun internet. Anggap saja IP address seperti alamat rumah untuk pengiriman paket data.</p>
 
     <h3>Fungsi Utama IP Address:</h3>
     <ul>
         <li><strong>Alamat Identifikasi Alat (Host):</strong> Mengetahui identitas spesifik suatu perangkat di jaringan.</li>
         <li><strong>Alamat Lokasi Jaringan:</strong> Menunjukkan rute atau jalur mana yang harus dilewati data agar sampai ke perangkat tujuan.</li>
     </ul>
+
+    <h3>Perbedaan IPv4 vs IPv6:</h3>
+    <ul>
+        <li><strong>IPv4:</strong> Terdiri dari 32-bit angka desimal yang dipisahkan titik. Contoh: <span class="highlight">192.168.1.1</span>. Kapasitasnya terbatas sekitar 4,3 miliar alamat di seluruh dunia.</li>
+        <li><strong>IPv6:</strong> Generasi baru dengan 128-bit kombinasi angka dan huruf (heksadesimal) dipisahkan titik dua. Contoh: <span class="highlight">2001:db8::ff00:42:8329</span>. Dibuat karena stok alamat IPv4 dunia sudah mulai habis.</li>
+    </ul>
+
+    <h3>Cara Cek IP Address Sendiri (Windows):</h3>
+    <ol>
+        <li>Tekan tombol kombinasi <span class="highlight">Windows + R</span> di keyboard Anda, ketik <span class="highlight">cmd</span>, lalu tekan Enter.</li>
+        <li>Ketik perintah <span class="highlight">ipconfig</span> di dalam Command Prompt, lalu tekan Enter.</li>
+        <li>Cari adapter jaringan aktif yang sedang Anda gunakan (Wi-Fi atau Ethernet), lalu lihat pada baris <strong>IPv4 Address</strong> untuk mengetahui alamat IP komputer Anda.</li>
+    </ol>
 </body>
 </html>
