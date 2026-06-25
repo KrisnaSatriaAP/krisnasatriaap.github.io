@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>krisnasatriaap - Edukasi Jaringan & Komputer</title>
+    <title>Kryzna - Edukasi Jaringan & Komputer</title>
     <style>
         /* Gaya Dasar & Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -30,22 +30,9 @@
         .card h3 { margin-bottom: 0.5rem; color: #1e3a8a; }
         .card p { margin-bottom: 1.5rem; color: #555; }
         
-        /* Tombol Baca */
-        .btn-read { background-color: #0ea5e9; color: white; border: none; padding: 0.6rem 1rem; border-radius: 5px; cursor: pointer; font-weight: 600; text-align: center; transition: background 0.2s; }
+        /* Tombol Link */
+        .btn-read { display: block; background-color: #0ea5e9; color: white; text-decoration: none; padding: 0.6rem 1rem; border-radius: 5px; cursor: pointer; font-weight: 600; text-align: center; transition: background 0.2s; }
         .btn-read:hover { background-color: #0284c7; }
-
-        /* Jendela Pop-up / Modal */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; }
-        .modal-content { background-color: white; padding: 2rem; border-radius: 10px; max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .close-btn { position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; cursor: pointer; color: #aaa; }
-        .close-btn:hover { color: #333; }
-        
-        /* Teks dalam Modal */
-        .modal-content h2 { color: #1e3a8a; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
-        .modal-content h4 { margin: 1rem 0 0.5rem 0; color: #0ea5e9; }
-        .modal-content ul, .modal-content ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-        .modal-content li { margin-bottom: 0.5rem; }
-        .highlight { background-color: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0369a1; }
 
         footer { background-color: #1e293b; color: white; text-align: center; padding: 1.5rem 1rem; margin-top: 4rem; }
     </style>
@@ -53,7 +40,7 @@
 <body>
 
     <header>
-        <h1>krisnasatriaap</h1>
+        <h1>Kryzna</h1>
         <nav>
             <a href="#tutorial">Tutorial</a>
             <a href="#tentang">Tentang</a>
@@ -73,87 +60,33 @@
         </div>
     </main>
 
-    <!-- Kontainer Pop-up Tunggal Otomatis -->
-    <div id="materiModal" class="modal">
-        <div class="modal-content" id="modal-body">
-            <!-- Konten pop-up berganti otomatis sesuai materi yang diklik -->
-        </div>
-    </div>
-
     <section class="container" id="tentang" style="text-align: center; max-width: 700px;">
         <h2 class="section-title">Tentang Website Ini</h2>
         <p>Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet.</p>
     </section>
 
     <footer>
-        <p>&copy; 2026 krisnasatriaap. Dibuat dengan GitHub Pages.</p>
+        <p>&copy; 2026 Kryzna. Dibuat dengan GitHub Pages.</p>
     </footer>
 
     <script>
-        let semuaMateri = [];
-
-        // 1. Mengambil data dari materi.json secara otomatis
+        // Mengambil data daftar menu dari file materi.json
         fetch('materi.json')
             .then(response => response.json())
             .then(data => {
-                semuaMateri = data;
-                renderCards(data);
-            })
-            .catch(error => console.error('Gagal memuat materi:', error));
-
-        // 2. Membuat kartu tutorial di halaman utama
-        function renderCards(data) {
-            const grid = document.getElementById('tutorial-grid');
-            grid.innerHTML = data.map(item => `
-                <div class="card">
-                    <div>
-                        <h3>${item.judul}</h3>
-                        <p>${item.deskripsiSingkat}</p>
+                const grid = document.getElementById('tutorial-grid');
+                grid.innerHTML = data.map(item => `
+                    <div class="card">
+                        <div>
+                            <h3>${item.judul}</h3>
+                            <p>${item.deskripsiSingkat}</p>
+                        </div>
+                        <!-- Link langsung mengarah ke halaman file HTML materi masing-masing -->
+                        <a href="${item.linkHalaman}" class="btn-read">Buka Tutorial</a>
                     </div>
-                    <button class="btn-read" onclick="bukaMateri('${item.id}')">Baca Selengkapnya</button>
-                </div>
-            `).join('');
-        }
-
-        // 3. Mengisi konten pop-up secara dinamis saat tombol diklik
-        function bukaMateri(id) {
-            const materi = semuaMateri.find(m => m.id === id);
-            if (!materi) return;
-
-            let subMateriHTML = '';
-            materi.subMateri.forEach(sub => {
-                const listTag = sub.tipe === 'ol' ? 'ol' : 'ul';
-                const poinHTML = sub.poin.map(p => `<li>${p}</li>`).join('');
-                subMateriHTML += `
-                    <h4>${sub.subJudul}</h4>
-                    <${listTag}>${poinHTML}</${listTag}>
-                `;
-            });
-
-            const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = `
-                <span class="close-btn" onclick="tutupMateri()">&times;</span>
-                <h2>${materi.judul}</h2>
-                <p>${materi.pengantar}</p>
-                ${subMateriHTML}
-            `;
-
-            document.getElementById('materiModal').style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-
-        function tutupMateri() {
-            document.getElementById('materiModal').style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        // Tutup jika mengklik area hitam di luar pop-up
-        window.onclick = function(event) {
-            const modal = document.getElementById('materiModal');
-            if (event.target === modal) {
-                tutupMateri();
-            }
-        }
+                `).join('');
+            })
+            .catch(error => console.error('Gagal memuat daftar menu:', error));
     </script>
 </body>
 </html>
