@@ -20,6 +20,28 @@
         .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
         .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
+        /* Kolom Pencarian (Search Bar) */
+        .search-container {
+            max-width: 500px;
+            margin: -1.5rem auto 2rem auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+        .search-input:focus {
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+
         /* Konten Utama */
         .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
         .section-title { text-align: center; margin-bottom: 2rem; color: #1e3a8a; }
@@ -52,6 +74,11 @@
         <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer.</p>
     </section>
 
+    <!-- Komponen Search Bar Baru -->
+    <div class="search-container">
+        <input type="text" id="search-bar" class="search-input" placeholder="🔍 Cari materi tutorial di sini..." onkeyup="filterMateri()">
+    </div>
+
     <!-- Kontainer Kartu Menu Utama -->
     <main class="container" id="tutorial">
         <h2 class="section-title">Daftar Tutorial Dasar</h2>
@@ -70,6 +97,9 @@
     </footer>
 
     <script>
+        // Variabel global untuk menyimpan data dari JSON
+        let dataMateriGlobal = [];
+
         // Membaca file pangkalan data materi JSON secara asinkronus
         fetch('materi.json')
             .then(response => {
@@ -79,22 +109,8 @@
                 return response.json();
             })
             .then(data => {
-                const grid = document.getElementById('tutorial-grid');
-                if (!data || data.length === 0) {
-                    grid.innerHTML = '<p style="text-align:center; width:100%;">Belum ada materi tutorial saat ini.</p>';
-                    return;
-                }
-                
-                // Memetakan data dari file JSON ke format kartu HTML
-                grid.innerHTML = data.map(item => `
-                    <div class="card">
-                        <div>
-                            <h3>${item.judul || 'Judul Belum Diisi'}</h3>
-                            <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
-                        </div>
-                        <a href="${item.linkHalaman || '#'}" class="btn-read">Buka Tutorial</a>
-                    </div>
-                `).join('');
+                dataMateriGlobal = data; // Simpan data ke variabel global
+                tampilkanMateri(dataMateriGlobal);
             })
             .catch(error => {
                 console.error('Terjadi kendala pemuatan skrip:', error);
@@ -108,6 +124,40 @@
                     `;
                 }
             });
+
+        // Fungsi untuk merender kartu ke dalam grid HTML
+        function tampilkanMateri(materiArray) {
+            const grid = document.getElementById('tutorial-grid');
+            
+            if (materiArray.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem; color: #888;">Materi yang Anda cari tidak ditemukan.</p>';
+                return;
+            }
+
+            grid.innerHTML = materiArray.map(item => `
+                <div class="card">
+                    <div>
+                        <h3>${item.judul || 'Judul Belum Diisi'}</h3>
+                        <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
+                    </div>
+                    <a href="${item.linkHalaman || '#'}" class="btn-read">Buka Tutorial</a>
+                </div>
+            `).join('');
+        }
+
+        // Fitur Filter Pencarian Otomatis (Search Function)
+        function filterMateri() {
+            const kataKunci = document.getElementById('search-bar').value.toLowerCase();
+            
+            // Filter berdasarkan Judul atau Deskripsi Singkat
+            const hasilFilter = dataMateriGlobal.filter(item => {
+                const judulCocok = item.judul.toLowerCase().includes(kataKunci);
+                const deskripsiCocok = item.deskripsiSingkat.toLowerCase().includes(kataKunci);
+                return judulCocok || deskripsiCocok;
+            });
+
+            tampilkanMateri(hasilFilter);
+        }
     </script>
 </body>
 </html>
