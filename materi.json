@@ -1,101 +1,17 @@
 [
   {
-    "id": "modalIP",
     "judul": "1. Mengenal IP Address",
-    "deskripsi Singkat": "Penjelasan lengkap mengenai pengertian, fungsi, perbedaan IPv4 & IPv6, serta cara mengecek IP perangkat Anda.",
-    "pengantar": "Internet Protocol Address (IP Address) adalah identitas angka unik yang dimiliki oleh setiap perangkat (komputer, HP, router) agar bisa saling berkomunikasi di dalam jaringan lokal maupun internet. Anggap saja IP address seperti alamat rumah untuk pengiriman paket data.",
-    "subMateri": [
-      {
-        "subJudul": "Fungsi Utama IP Address:",
-        "tipe": "ul",
-        "poin": [
-          "<strong>Alamat Identifikasi Alat (Host):</strong> Mengetahui identitas spesifik suatu perangkat di jaringan.",
-          "<strong>Alamat Lokasi Jaringan:</strong> Menunjukkan rute atau jalur mana yang harus dilewati data agar sampai ke perangkat tujuan."
-        ]
-      },
-      {
-        "subJudul": "Perbedaan IPv4 vs IPv6:",
-        "tipe": "ul",
-        "poin": [
-          "<strong>IPv4:</strong> Terdiri dari 32-bit angka desimal yang dipisahkan titik. Contoh: <span class='highlight'>192.168.1.1</span>. Kapasitasnya terbatas sekitar 4,3 bilyar alamat.",
-          "<strong>IPv6:</strong> Generasi baru dengan 128-bit kombinasi angka dan huruf (heksadesimal) dipisahkan titik dua. Contoh: <span class='highlight'>2001:db8::ff00:42:8329</span>. Dibuat karena stok IPv4 dunia sudah mulai habis."
-        ]
-      },
-      {
-        "subJudul": "Cara Cek IP Address Sendiri (Windows):",
-        "tipe": "ol",
-        "poin": [
-          "Tekan tombol tombol <span class='highlight'>Windows + R</span> di keyboard, ketik <span class='highlight'>cmd</span>, lalu tekan Enter.",
-          "Ketik perintah <span class='highlight'>ipconfig</span> lalu tekan Enter.",
-          "Cari adapter jaringan yang Anda gunakan (Wi-Fi atau Ethernet), lalu lihat baris <strong>IPv4 Address</strong>."
-        ]
-      }
-    ]
+    "deskripsiSingkat": "Penjelasan lengkap mengenai pengertian, fungsi, perbedaan IPv4 & IPv6, serta cara mengecek IP perangkat Anda.",
+    "linkHalaman": "ip-address.html"
   },
   {
-    "id": "modalPing",
     "judul": "2. Cara Tes Koneksi (Ping)",
-    "deskripsi Singkat": "Pelajari perintah dasar CMD untuk menganalisis kualitas jaringan internet, membaca status time out, dan delay ping.",
-    "pengantar": "PING (Packet Internet Groper) adalah perintah utilitas yang digunakan untuk mengecek integritas atau kualitas koneksi antara perangkat Anda dengan server target di internet menggunakan protokol ICMP.",
-    "subMateri": [
-      {
-        "subJudul": "Cara Melakukan Ping:",
-        "tipe": "ol",
-        "poin": [
-          "Buka Command Prompt (Windows) atau Terminal (Mac/Linux).",
-          "Ketik perintah: <span class='highlight'>ping google.com</span> atau <span class='highlight'>ping 8.8.8.8</span> lalu tekan Enter.",
-          "Sistem akan mengirimkan 4 paket data uji coba dan menunggu balasannya."
-        ]
-      },
-      {
-        "subJudul": "Cara Membaca Hasil Ping:",
-        "tipe": "ul",
-        "poin": [
-          "<strong>Reply from... Bytes=32 Time=15ms TTL=56 :</strong> Koneksi berhasil. Nilai <strong>Time</strong> makin kecil (milidetik) artinya koneksi makin cepat dan stabil.",
-          "<strong>Request Timed Out (RTO) :</strong> Paket data hilang di tengah jalan. Hal ini menandakan adanya gangguan kabel, sinyal buruk, atau server target sedang mati/memblokir ping.",
-          "<strong>Destination Host Unreachable :</strong> Komputer Anda sama sekali tidak menemukan jalur/rute menuju alamat IP target, biasanya karena masalah konfigurasi lokal atau Wi-Fi terputus."
-        ]
-      }
-    ]
+    "deskripsiSingkat": "Pelajari perintah dasar CMD untuk menganalisis kualitas jaringan internet, membaca status time out, dan delay ping.",
+    "linkHalaman": "tes-ping.html"
   },
   {
-    "id": "modalUTP",
     "judul": "3. Urutan Kabel UTP (Crimping)",
-    "deskripsi Singkat": "Panduan teknis langkah demi langkah menyusun warna kabel standar Straight dan Cross menggunakan tang crimping.",
-    "pengantar": "Kabel UTP (Unshielded Twisted Pair) kategori Cat5e atau Cat6 adalah media transmisi kabel yang paling umum digunakan untuk menghubungkan komputer ke Switch atau Router.",
-    "subMateri": [
-      {
-        "subJudul": "Alat-alat yang Dibutuhkan:",
-        "tipe": "ul",
-        "poin": [
-          "Kabel UTP, Konektor RJ45, Tang Crimping, dan LAN Tester."
-        ]
-      },
-      {
-        "subJudul": "Standar Urutan Warna T568B (Paling Sering Digunakan):",
-        "tipe": "ol",
-        "poin": [
-          "Putih - Oranye",
-          "Oranye",
-          "Putih - Hijau",
-          "Biru",
-          "Putih - Biru",
-          "Hijau",
-          "Putih - Cokelat",
-          "Cokelat"
-        ]
-      },
-      {
-        "subJudul": "Langkah Pembuatan:",
-        "tipe": "ol",
-        "poin": [
-          "Kupas kulit luar kabel UTP sekitar 2 cm menggunakan tang crimping.",
-          "Urai lilitan kabel, urutkan warnanya sesuai standar T568B di atas, lalu rapikan dan potong rata ujungnya.",
-          "Masukkan kabel ke dalam RJ45 hingga menyentuh ujung konektor pin tembaga.",
-          "Jepit RJ45 menggunakan Tang Crimping hingga berbunyi 'klik' dan pin menancap kuat.",
-          "Tes kedua ujung kabel menggunakan LAN Tester. Jika lampu indikator nomor 1 sampai 8 menyala berurutan, instalasi sukses!"
-        ]
-      }
-    ]
+    "deskripsiSingkat": "Panduan teknis langkah demi langkah menyusun warna kabel standar Straight dan Cross menggunakan tang crimping.",
+    "linkHalaman": "kabel-utp.html"
   }
 ]
