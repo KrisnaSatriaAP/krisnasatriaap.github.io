@@ -8,7 +8,7 @@ Situs web ini di-host secara langsung menggunakan layanan **GitHub Pages**.
 
 ### 🚀 Tautan Akses Live
 Website dapat langsung Anda akses dan baca melalui link berikut:
-👉 **[krisnasatriaap](https://github.io)**
+👉 **[krisnasatriaap](https://krisnasatriaap.github.io)**
 
 ---
 Dibuat dengan 💻 oleh **[KrisnaSatriaAP](https://github.com)**. Hak Cipta © 2026 Kryzna.
