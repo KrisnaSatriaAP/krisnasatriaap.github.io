@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Router vs Switch - Kryzna</title>
+    <title>Router vs Switch - Kryzna Learn</title>
     <style>
-        /* Gaya Dasar & Reset - Disamakan dengan halaman utama Kryzna */
+        /* Gaya Dasar & Reset - Disamakan dengan halaman utama Kryzna Learn */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
 
         /* Navigasi Atas - Menggunakan tanda ../ agar aman melompat keluar folder */
-        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
         header h1 { font-size: 1.5rem; }
         nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
         nav a:hover { color: #38bdf8; }
@@ -35,7 +35,7 @@
 
     <!-- Navigasi Atas yang Senada dengan Halaman Utama -->
     <header>
-        <h1>Kryzna</h1>
+        <h1>Kryzna Learn</h1>
         <nav>
             <a href="../index.html#tutorial">Tutorial</a>
             <a href="../index.html#tentang">Tentang</a>
@@ -51,10 +51,10 @@
         <p>Banyak orang awam mengira Router dan Switch adalah alat yang sama karena bentuk fisiknya mirip. Padahal keduanya bekerja di lapisan jaringan yang berbeda dan memiliki tugas utama yang jauh berbeda.</p>
         
         <h3>1. Switch (Penghubung Jaringan Lokal)</h3>
-        <p>Switch berfungsi untuk menghubungkan banyak komputer atau perangkat di dalam satu jaringan lokal (LAN) yang sama agar bisa saling bertukar data menggunakan MAC Address. Switch bekerja pada Data Link Layer (Layer 2) dalam model OSI dan tidak bisa memberikan akses internet secara mandiri.</p>
+        <p>Switch berfungsi untuk menghubungkan banyak komputer atau perangkat di dalam satu jaringan lokal (LAN) yang sama agar bisa saling bertukar data menggunakan MAC Address. Switch bekerja pada Layer 2 dari model OSI.</p>
 
         <h3>2. Router (Penghubung Antar Jaringan / Internet)</h3>
-        <p>Router berfungsi untuk menghubungkan jaringan lokal Anda ke jaringan luar atau internet menggunakan IP Address. Router bekerja pada Network Layer (Layer 3) dalam model OSI dan bertugas mencari rute tercepat agar paket data internet dari penyedia layanan (ISP) bisa sampai ke perangkat pintar Anda.</p>
+        <p>Router berfungsi untuk menghubungkan jaringan lokal Anda ke jaringan luar atau internet menggunakan IP Address. Router bekerja pada Network Layer (Layer 3) dalam model OSI dan bertugas meneruskan paket antarjaringan.</p>
 
         <h3>Tabel Perbandingan Singkat:</h3>
         <table>
