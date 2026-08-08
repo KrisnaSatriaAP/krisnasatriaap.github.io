@@ -8,7 +8,7 @@ Situs web ini di-host secara langsung menggunakan layanan **GitHub Pages**.
 
 ### 🚀 Tautan Akses Live
 Website dapat langsung Anda akses dan baca melalui link berikut:
-👉 **[kryznalearn](https://kryznalearn.github.io)**
+👉 **[Kryzna Learn](https://krisnasatriaap.github.io/kryznalearn/)**
 
 ---
-Dibuat dengan 💻 oleh **[KrisnaSatriaAP](https://github.com/KrisnaSatriaAP)**. Hak Cipta © 2026 Kryzna Learn.
+Dibuat dengan 💻 oleh **[Krisna Satria](https://github.com/KrisnaSatriaAP)**. Hak Cipta © 2026 Kryzna Learn.
