@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAC Address - Kryzna</title>
+    <title>MAC Address - Kryzna Learn</title>
     <style>
-        /* Gaya Dasar & Reset - Disamakan dengan halaman utama Kryzna */
+        /* Gaya Dasar & Reset - Disamakan dengan halaman utama Kryzna Learn */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
 
         /* Navigasi Atas - Menggunakan tanda ../ agar aman melompat keluar folder */
-        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
         header h1 { font-size: 1.5rem; }
         nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
         nav a:hover { color: #38bdf8; }
@@ -32,7 +32,7 @@
 
     <!-- Navigasi Atas yang Senada dengan Halaman Utama -->
     <header>
-        <h1>Kryzna</h1>
+        <h1>Kryzna Learn</h1>
         <nav>
             <a href="../index.html#tutorial">Tutorial</a>
             <a href="../index.html#tentang">Tentang</a>
@@ -45,27 +45,32 @@
         <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
         
         <h1>5. Mengenal MAC Address (Alamat Fisik Perangkat)</h1>
-        <p><strong>Media Access Control Address (MAC Address)</strong> adalah identitas fisik unik sepanjang 48-bit yang ditanamkan secara permanen pada kartu jaringan atau <em>Network Interface Card</em> (NIC/Wi-Fi adapter) perangkat Anda oleh pabrik pembuatnya. MAC Address berfungsi sebagai tanda pengenal perangkat keras agar bisa berkomunikasi di dalam lapisan data-link (Layer 2) pada model OSI.</p>
+        <p><strong>Media Access Control Address (MAC Address)</strong> adalah identitas fisik unik sepanjang 48-bit yang ditanamkan secara permanen pada kartu jaringan atau <em>Network Interface Card</em> suatu perangkat.</p>
         
         <h3>Apa Bedanya dengan IP Address?</h3>
         <ul>
-            <li><strong>IP Address (Alamat Logis):</strong> Bersifat dinamis atau bisa berubah-ubah tergantung lokasi jaringan internet tempat perangkat Anda terhubung saat itu.</li>
-            <li><strong>MAC Address (Alamat Fisik):</strong> Bersifat statis atau permanen. Alamat ini unik di seluruh dunia dan tidak akan pernah berubah ke mana pun perangkat Anda dibawa.</li>
+            <li><strong>IP Address (Alamat Logis):</strong> Bersifat dinamis atau bisa berubah tergantung jaringan tempat perangkat terhubung.</li>
+            <li><strong>MAC Address (Alamat Fisik):</strong> Umumnya bersifat statis dan unik untuk setiap perangkat, terikat pada hardware.</li>
         </ul>
 
         <h3>Struktur Penulisan MAC Address:</h3>
-        <p>MAC Address ditulis dalam bentuk 12 digit bilangan heksadesimal yang dikelompokkan menjadi 6 bagian yang dipisahkan oleh tanda hubung (-) atau titik dua (:). Contoh formatnya: <span class="highlight">00-1A-2B-3C-4D-5E</span>.</p>
+        <p>MAC Address ditulis dalam 12 digit heksadesimal yang dikelompokkan menjadi 6 pasangan: contoh <span class="highlight">00:1A:2B:3C:4D:5E</span>.</p>
         <ul>
-            <li><strong>3 Blok Pertama (OUI):</strong> Menunjukkan kode identitas pabrik pembuat perangkat hardware (misal: Cisco, Intel, Asus).</li>
-            <li><strong>3 Blok Terakhir:</strong> Menunjukkan nomor urut unik komponen fisik adapter jaringan tersebut.</li>
+            <li><strong>OUI (3 blok pertama):</strong> Organizationally Unique Identifier — menunjukkan vendor pembuat perangkat.</li>
+            <li><strong>3 blok terakhir:</strong> Nomor seri atau identitas unik perangkat tersebut.</li>
         </ul>
 
         <h3>Cara Cek MAC Address di Windows:</h3>
         <ol>
-            <li>Buka aplikasi Command Prompt (CMD) di komputer Anda.</li>
-            <li>Ketik perintah <span class="highlight">getmac</span> lalu tekan Enter untuk melihat daftar alamat fisik cepat.</li>
-            <li>Atau, ketik perintah <span class="highlight">ipconfig /all</span> dan tekan Enter untuk melihat detail lengkap jaringan. Cari baris tulisan <strong>Physical Address</strong> pada adapter jaringan yang sedang Anda gunakan aktif.</li>
+            <li>Buka Command Prompt (CMD).</li>
+            <li>Ketik <span class="highlight">getmac</span> untuk daftar cepat atau <span class="highlight">ipconfig /all</span> untuk detail (lihat baris Physical Address).</li>
         </ol>
+
+        <h3>Tips Keamanan & Praktis</h3>
+        <ul>
+            <li>Beberapa jaringan (mis. kantor) menggunakan MAC filtering — perangkat yang tidak terdaftar tidak akan mendapatkan akses.</li>
+            <li>MAC Address dapat dipalsukan (spoofing) pada sistem operasi tertentu untuk kebutuhan troubleshooting atau privacy.</li>
+        </ul>
     </main>
 
 </body>
