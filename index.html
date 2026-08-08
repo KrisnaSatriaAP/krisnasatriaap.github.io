@@ -152,6 +152,12 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
             updateThemeButton(savedTheme);
             
+            // Cek apakah ada parameter untuk reset
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('reset') === 'true') {
+                document.getElementById('search-bar').value = '';
+            }
+            
             // Load materi
             loadMateri();
         });
@@ -181,7 +187,7 @@
         // Menampilkan kartu tutorial ke grid secara otomatis
         function tampilkanMateri(materiArray) {
             const grid = document.getElementById('tutorial-grid');
-            if (materiArray.length === 0) {
+            if (!materiArray || materiArray.length === 0) {
                 grid.innerHTML = '<div class="no-results">Materi yang Anda cari tidak ditemukan.</div>';
                 return;
             }
@@ -221,9 +227,24 @@
 
         // Go Home - Tampilkan semua materi dan scroll ke atas
         function goHome() {
-            document.getElementById('search-bar').value = ''; // Reset search bar
-            tampilkanMateri(dataMateriGlobal); // Tampilkan semua materi
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll ke atas
+            // Reset search bar
+            const searchBar = document.getElementById('search-bar');
+            if (searchBar) {
+                searchBar.value = '';
+            }
+            
+            // Tampilkan semua materi
+            if (dataMateriGlobal && dataMateriGlobal.length > 0) {
+                tampilkanMateri(dataMateriGlobal);
+            }
+            
+            // Scroll ke atas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Bersihkan URL parameter
+            if (window.history.pushState) {
+                window.history.pushState(null, null, window.location.pathname);
+            }
         }
 
         // Toggle Dark Mode
