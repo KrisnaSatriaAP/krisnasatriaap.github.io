@@ -2,8 +2,6 @@
 
 Selamat datang di repositori proyek **Kryzna Learn**! Ini adalah platform website edukasi statis berbasis web yang dirancang khusus untuk membagikan panduan praktis, materi dasar, serta tutorial interaktif seputar jaringan komputer.
 
-Situs web ini di-host secara langsung menggunakan layanan **GitHub Pages**.
-
 ---
 
 ### 🚀 Tautan Akses Live
